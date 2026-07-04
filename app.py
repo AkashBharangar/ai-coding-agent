@@ -1,37 +1,23 @@
-from groq import Groq
+from langchain_core.messages import HumanMessage
 
-from utils.config import GROQ_API_KEY, MODEL_NAME
-from utils.logger import logger
+from agent.graph import graph
 
+print("=" * 60)
+print("AI Coding Agent")
+print("=" * 60)
 
-def main():
-    print("=" * 50)
-    print("AI Coding Agent")
-    print("=" * 50)
+while True:
+    user_input = input("You: ")
+    if user_input.lower() in ["exit", "quit"]:
+        break
 
-    if not GROQ_API_KEY:
-        print("Groq API Key not found!")
-        return
-
-    client = Groq(api_key=GROQ_API_KEY)
-
-    response = client.chat.completions.create(
-        model=MODEL_NAME,
-        messages=[
-            {
-                "role": "user",
-                "content": "Reply with Setup Successful"
-            }
-        ],
-        temperature=1,
+    result = graph.invoke(
+        {
+            "messages": [
+                HumanMessage(content=user_input)
+            ]
+        }
     )
 
-    answer = response.choices[0].message.content
-
-    print(answer)
-
-    logger.info("Groq connection successful")
-
-
-if __name__ == "__main__":
-    main()
+    print("\n Assistant:")
+    print(result["messages"][-1].content)
