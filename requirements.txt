@@ -1,4 +1,5 @@
 groq
+langchain-groq
 
 langchain
 langchain-core

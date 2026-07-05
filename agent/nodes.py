@@ -1,45 +1,31 @@
-from langchain_core.messages import AIMessage
-
-from groq import Groq
-
-from agent.prompts import SYSTEM_PROMPT
+from langchain_core.messages import SystemMessage
+from langchain_groq import ChatGroq
 from utils.config import GROQ_API_KEY, MODEL_NAME
+from agent.prompts import SYSTEM_PROMPT
+from tools import TOOLS
 
-client=Groq(api_key=GROQ_API_KEY)
+llm = ChatGroq(
+    api_key=GROQ_API_KEY,
+    model=MODEL_NAME,
+    temperature=0
+)
+
+llm = llm.bind_tools(TOOLS)
 
 def chatbot(state):
-    messages=[
-        {
-            "role":"system",
-            "content": SYSTEM_PROMPT 
-        }
+    print("Entering chatbot")
+
+    messages = [
+        SystemMessage(content=SYSTEM_PROMPT),
+        *state["messages"],
     ]
 
-    role_map = {
-    "human": "user",
-    "ai": "assistant",
-    "system": "system",
-    "tool": "tool",
-    }
+    print("Calling LLM...")
+    response = llm.invoke(messages)
 
-
-    for msg in state["messages"]:
-        messages.append(
-            {
-             "role": role_map[msg.type],
-            "content": msg.content,
-            }
-        )
-
-    response = client.chat.completions.create(
-        model=MODEL_NAME,
-        messages=messages,
-        temperature=0
-    )
+    print("Content:", response.content)
+    print("Tool calls:", response.tool_calls)
 
     return {
-        "messages": [
-        AIMessage(content=response.choices[0].message.content)
-        ]
+        "messages": [response]
     }
-
