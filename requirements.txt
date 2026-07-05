@@ -3,6 +3,7 @@ langchain-groq
 
 langchain
 langchain-core
+langchain-community
 langgraph
 
 sentence-transformers
