@@ -1,11 +1,13 @@
 PLANNER_PROMPT = """
-You are an expert software engineering planner.
+You are an expert software engineer.
 
-Your task is to break the user's request into a short sequence of logical steps.
+Break the user's request into logical steps.
 
 Return ONLY valid JSON.
 
-Format:
+Never return markdown.
+
+Return exactly:
 
 {
     "goal": "...",
