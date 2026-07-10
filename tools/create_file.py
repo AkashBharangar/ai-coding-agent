@@ -1,12 +1,13 @@
 from langchain_core.tools import tool
 from pathlib import Path
+from utils.path_utils import resolve_workspace_path
 
 @tool
 def create_file(file_path: str, content: str):
     """Create a new file"""
 
     try:
-        path = Path(file_path)
+        path = resolve_workspace_path(file_path)
 
         path.parent.mkdir(
             parents=True,

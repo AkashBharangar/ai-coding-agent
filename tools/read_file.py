@@ -1,12 +1,13 @@
 from pathlib import Path
 from langchain_core.tools import tool
+from utils.path_utils import resolve_workspace_path
 
 @tool
 def read_file(file_path: str) -> str:
     """Read the contents of a file"""
 
     try:
-        path = Path(file_path)
+        path = resolve_workspace_path(file_path)
 
         if not path.exists():
             return f"File '{file_path}' doesn't exists"

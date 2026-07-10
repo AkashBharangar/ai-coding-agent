@@ -1,5 +1,6 @@
 from pathlib import Path
 from langchain_core.tools import tool
+from utils.path_utils import WORKSPACE_ROOT
 
 @tool
 def search_files(keyword: str, directory: str = "workspace") -> str:
@@ -9,7 +10,7 @@ def search_files(keyword: str, directory: str = "workspace") -> str:
 
     try:
         matches = []
-        for path in Path(directory).rglob("*"):
+        for path in WORKSPACE_ROOT.rglob("*"):
             if keyword.lower() in path.name.lower():
                 matches.append(str(path))
 

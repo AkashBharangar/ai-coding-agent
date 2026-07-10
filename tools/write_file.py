@@ -1,13 +1,14 @@
 from pathlib import Path
 from langchain_core.tools import tool
+from utils.path_utils import resolve_workspace_path
 
 @tool
-def write_file(file_apth: str, content: str):
+def write_file(file_path: str, content: str):
     """
     Write or overwrite the contents of the file
     """
 
-    path = Path(file_apth)
+    path = resolve_workspace_path(file_path)
 
     try:
         path.write_text(
