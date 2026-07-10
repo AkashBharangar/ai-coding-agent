@@ -7,7 +7,6 @@ from tools.code_structure import code_structure
 from tools.create_file import create_file
 from tools.write_file import write_file
 from tools.delete_file import delete_file
-from tools.debug_error import debug_error
 
 TOOLS = [
     list_files,
@@ -19,5 +18,4 @@ TOOLS = [
     create_file,
     write_file,
     delete_file,
-    debug_error,
 ]

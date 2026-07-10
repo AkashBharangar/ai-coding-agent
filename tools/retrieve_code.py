@@ -4,7 +4,15 @@ from rag.retriever import retrieve
 @tool
 def retrieve_code(query: str) -> str:
     """
-    Retrieve relevant code from the indexed codebase
+    Use this tool to semantically search the indexed codebase.
+
+    Best for:
+
+    - explaining how features work
+    - locating business logic
+    - finding relevant code
+
+    Do NOT use for reading entire files.
     """
 
     docs = retrieve(query)

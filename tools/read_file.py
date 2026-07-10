@@ -4,7 +4,11 @@ from utils.path_utils import resolve_workspace_path
 
 @tool
 def read_file(file_path: str) -> str:
-    """Read the contents of a file"""
+    """
+    Read the complete contents of a specific file.
+
+    Use only when the exact file path is already known.
+    """
 
     try:
         path = resolve_workspace_path(file_path)

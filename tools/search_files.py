@@ -5,7 +5,9 @@ from utils.path_utils import WORKSPACE_ROOT
 @tool
 def search_files(keyword: str, directory: str = "workspace") -> str:
     """
-    Search for filename containing a keyword
+    Search filenames inside the workspace.
+
+    Use when the user knows part of a filename but not its location.
     """
 
     try:

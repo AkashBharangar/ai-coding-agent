@@ -6,7 +6,9 @@ from utils.path_utils import WORKSPACE_ROOT
 @tool
 def list_files(directory: str = "workspace") -> str:
     """
-    List all files recursively in the directory.
+    List every file inside the workspace.
+
+    Use when the user asks about project structure.
     """
     print("list_files tool running")
 
