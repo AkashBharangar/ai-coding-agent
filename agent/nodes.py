@@ -14,7 +14,6 @@ llm = ChatGroq(
 llm = llm.bind_tools(TOOLS)
 
 def chatbot(state):
-    print("Entering chatbot")
     plan = state.get("plan", {})
 
     messages = [
@@ -23,11 +22,7 @@ def chatbot(state):
         *state["messages"],
     ]
 
-    print("Calling LLM...")
     response = llm.invoke(messages)
-
-    print("Content:", response.content)
-    print("Tool calls:", response.tool_calls)
 
     return {
         "messages": [response]
