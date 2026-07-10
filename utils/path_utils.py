@@ -18,4 +18,4 @@ def resolve_workspace_path(file_path: str) -> Path:
     if WORKSPACE_ROOT not in path.parents and path != WORKSPACE_ROOT:
         raise ValueError("Access outside the workspace is not allowed.")
 
-    return pathgit status
+    return path

@@ -16,6 +16,9 @@ while True:
             "messages": [
                 HumanMessage(content=user_input)
             ]
+        }, 
+        config={
+        "recursion_limit": 10
         }
     )
 
