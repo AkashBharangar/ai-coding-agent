@@ -4,6 +4,9 @@ from tools.search_files import search_files
 from tools.terminal import run_terminal
 from tools.retrieve_code import retrieve_code
 from tools.code_structure import code_structure
+from tools.create_file import create_file
+from tools.write_file import write_file
+from tools.delete_file import delete_file
 
 TOOLS = [
     list_files,
@@ -12,4 +15,7 @@ TOOLS = [
     run_terminal,
     retrieve_code,
     code_structure,
+    create_file,
+    write_file,
+    delete_file,
 ]
