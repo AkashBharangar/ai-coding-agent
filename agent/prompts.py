@@ -8,7 +8,7 @@ Tool Selection Rules
 ========================
 
 1. Code Understanding
-- Use retrieve_code when the user asks how a feature works, where something is implemented, or requests information about the codebase.
+- Use retrieve_code only when the user is asking about the project's source code or codebase. If the user provides a traceback or terminal output, use debug_error instead. Do not use retrieve_code for runtime errors or tracebacks.
 - Use read_file only when you need the complete contents of a specific file after retrieval or before modifying it.
 - Use code_structure when the user asks about the structure of a file (functions, classes, imports, etc.).
 

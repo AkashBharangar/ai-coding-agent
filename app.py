@@ -18,7 +18,7 @@ while True:
             ]
         }, 
         config={
-        "recursion_limit": 10
+        "recursion_limit": 50
         }
     )
 
