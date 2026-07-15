@@ -46,7 +46,7 @@ The project was built with a strong focus on **AI Engineering concepts** rather 
 
 ---
 
-<!-- # 🎬 Demo
+# 🎬 Demo
 
 ### Demo GIF
 
@@ -78,7 +78,7 @@ The project was built with a strong focus on **AI Engineering concepts** rather 
 
 <p align="center">
 <img src="assets/planner.png" width="900"/>
-</p> -->
+</p>
 
 ---
 
